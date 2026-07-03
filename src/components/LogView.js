@@ -13,7 +13,7 @@ export default function LogView() {
 
 	const load = () => {
 		setLoading( true );
-		apiFetch( { path: 'log' } )
+		apiFetch( { path: '/trigv/v1/log' } )
 			.then( ( data ) => setEntries( data.entries || [] ) )
 			.finally( () => setLoading( false ) );
 	};
@@ -21,7 +21,7 @@ export default function LogView() {
 	useEffect( load, [] );
 
 	const clear = () => {
-		apiFetch( { path: 'log', method: 'DELETE' } ).then( () => setEntries( [] ) );
+		apiFetch( { path: '/trigv/v1/log', method: 'DELETE' } ).then( () => setEntries( [] ) );
 	};
 
 	if ( loading ) {

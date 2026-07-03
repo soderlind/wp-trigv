@@ -25,6 +25,21 @@ const LEVELS = [
 	{ label: 'error', value: 'error' },
 ];
 
+/**
+ * Pre-fill empty title/description with each Trigger's default template so the
+ * fields show editable default content rather than an empty placeholder.
+ */
+function hydrate( list ) {
+	return list.map( ( t ) => ( {
+		...t,
+		config: {
+			...t.config,
+			title: t.config.title || t.default_title,
+			description: t.config.description || t.default_description,
+		},
+	} ) );
+}
+
 export default function Triggers() {
 	const [ loading, setLoading ] = useState( true );
 	const [ saving, setSaving ] = useState( false );
@@ -32,8 +47,8 @@ export default function Triggers() {
 	const [ triggers, setTriggers ] = useState( [] );
 
 	useEffect( () => {
-		apiFetch( { path: 'triggers' } )
-			.then( ( data ) => setTriggers( data.triggers || [] ) )
+		apiFetch( { path: '/trigv/v1/triggers' } )
+			.then( ( data ) => setTriggers( hydrate( data.triggers || [] ) ) )
 			.finally( () => setLoading( false ) );
 	}, [] );
 
@@ -52,9 +67,9 @@ export default function Triggers() {
 		triggers.forEach( ( t ) => {
 			payload[ t.id ] = t.config;
 		} );
-		apiFetch( { path: 'triggers', method: 'POST', data: { triggers: payload } } )
+		apiFetch( { path: '/trigv/v1/triggers', method: 'POST', data: { triggers: payload } } )
 			.then( ( data ) => {
-				setTriggers( data.triggers || [] );
+				setTriggers( hydrate( data.triggers || [] ) );
 				setNotice( { status: 'success', text: __( 'Triggers saved.', 'wp-trigv' ) } );
 			} )
 			.catch( ( err ) =>

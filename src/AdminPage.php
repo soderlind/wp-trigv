@@ -72,17 +72,5 @@ final class AdminPage {
 		);
 
 		wp_set_script_translations( 'trigv-admin', 'wp-trigv' );
-
-		wp_add_inline_script(
-			'trigv-admin',
-			'window.trigvData = ' . wp_json_encode(
-				array(
-					'restUrl' => esc_url_raw( rest_url( 'trigv/v1' ) ),
-					'nonce'   => wp_create_nonce( 'wp_rest' ),
-					'docsUrl' => 'https://trigv.com/docs/events/',
-				)
-			) . ';',
-			'before'
-		);
 	}
 }

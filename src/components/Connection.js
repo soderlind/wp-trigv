@@ -38,7 +38,7 @@ export default function Connection() {
 	const [ apiKey, setApiKey ] = useState( '' );
 
 	useEffect( () => {
-		apiFetch( { path: 'settings' } )
+		apiFetch( { path: '/trigv/v1/settings' } )
 			.then( ( data ) => setSettings( data ) )
 			.finally( () => setLoading( false ) );
 	}, [] );
@@ -47,7 +47,7 @@ export default function Connection() {
 		setSaving( true );
 		setNotice( null );
 		apiFetch( {
-			path: 'settings',
+			path: '/trigv/v1/settings',
 			method: 'POST',
 			data: {
 				api_key: apiKey,
@@ -70,7 +70,7 @@ export default function Connection() {
 		setTesting( true );
 		setNotice( null );
 		apiFetch( {
-			path: 'test',
+			path: '/trigv/v1/test',
 			method: 'POST',
 			data: { channel: settings.default_channel },
 		} )
@@ -109,13 +109,22 @@ export default function Connection() {
 				) : (
 					<TextControl
 						type="password"
-						label={ __( 'Trigv API key', 'wp-trigv' ) }
+						label={
+							settings.has_api_key
+								? __( 'Trigv API key (saved)', 'wp-trigv' )
+								: __( 'Trigv API key', 'wp-trigv' )
+						}
+						placeholder={
+							settings.has_api_key
+								? settings.masked_key
+								: __( 'Paste your trgv_… token.', 'wp-trigv' )
+						}
 						help={
 							settings.has_api_key
-								? `${ __( 'A key is stored', 'wp-trigv' ) } (${ settings.masked_key }). ${ __(
-										'Leave blank to keep it.',
+								? __(
+										'A key is saved. Leave blank to keep it, or paste a new key to replace it.',
 										'wp-trigv'
-								  ) }`
+								  )
 								: __( 'Paste your trgv_… token.', 'wp-trigv' )
 						}
 						value={ apiKey }
