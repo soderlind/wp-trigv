@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 - 2026-07-03
+
+- Internal: introduce an immutable `Notification` value object; the Trigv HTTP
+  client is now transport-only.
+- Internal: split per-Trigger configuration into a dedicated module, separate
+  from the Trigger catalog.
+- No functional changes for existing sites.
+
 ## 1.1.0 - 2026-07-03
 
 - Add a "Page published" Trigger.

@@ -21,13 +21,15 @@ final class Plugin {
 	private Settings $settings;
 	private Log $log;
 	private TriggerCatalog $catalog;
+	private TriggerConfig $config;
 	private Dispatcher $dispatcher;
 
 	private function __construct() {
 		$this->settings   = new Settings();
 		$this->log        = new Log();
 		$this->catalog    = new TriggerCatalog();
-		$this->dispatcher = new Dispatcher( $this->settings, $this->catalog, $this->log );
+		$this->config     = new TriggerConfig( $this->catalog );
+		$this->dispatcher = new Dispatcher( $this->settings, $this->catalog, $this->config, $this->log );
 	}
 
 	/**
@@ -49,7 +51,7 @@ final class Plugin {
 		$this->catalog->init();
 		$this->dispatcher->init();
 
-		( new RestController( $this->settings, $this->catalog, $this->log ) )->init();
+		( new RestController( $this->settings, $this->catalog, $this->config, $this->log ) )->init();
 
 		if ( is_admin() ) {
 			( new AdminPage( $this->settings ) )->init();
@@ -62,6 +64,10 @@ final class Plugin {
 
 	public function catalog(): TriggerCatalog {
 		return $this->catalog;
+	}
+
+	public function config(): TriggerConfig {
+		return $this->config;
 	}
 
 	public function dispatcher(): Dispatcher {

@@ -308,9 +308,11 @@ npm run lint:js      # ESLint (src only)
 | --- | --- |
 | `Plugin` | Bootstrap and wiring |
 | `Settings` | Connection config (API key, defaults) |
-| `TriggerCatalog` / `Trigger` | Available Triggers + per-Trigger config |
-| `Dispatcher` | Build, enqueue, send, retry Notifications |
-| `TrigvClient` | HTTP client for the Trigv API |
+| `TriggerCatalog` / `Trigger` | Registry of available Triggers |
+| `TriggerConfig` | Per-Trigger configuration (enabled, channel, level, templates) |
+| `Notification` | Immutable notification value object — build, validate, payload |
+| `Dispatcher` | Enqueue, send, and retry Notifications |
+| `TrigvClient` | HTTP transport for the Trigv API |
 | `RestController` | `trigv/v1` REST routes for the admin app |
 | `AdminPage` | Menu + React app mount |
 | `Log` | Recent-dispatch ring buffer |

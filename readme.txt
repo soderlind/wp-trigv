@@ -4,7 +4,7 @@ Tags: notifications, push, events, webhook, trigv
 Requires at least: 6.8
 Tested up to: 7.0
 Requires PHP: 8.3
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,11 @@ Set the API key on the Trigv admin screen, or define it in `wp-config.php`:
 `define( 'TRIGV_API_KEY', 'trgv_xxxx_yyyy' );`
 
 == Changelog ==
+
+= 1.2.0 =
+* Internal: introduce an immutable `Notification` value object; the Trigv HTTP client is now transport-only.
+* Internal: split per-Trigger configuration into a dedicated module, separate from the Trigger catalog.
+* No functional changes for existing sites.
 
 = 1.1.0 =
 * Add a "Page published" Trigger.
