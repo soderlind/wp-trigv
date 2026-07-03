@@ -24,6 +24,8 @@ background, with retries, so your site stays fast.
 
 == Developer API ==
 
+Full developer guide (custom Triggers, filters, REST API, examples): https://github.com/soderlind/wp-trigv/blob/main/DEVELOPER.md
+
 Send a notification:
 
 `do_action( 'trigv_send', array(
