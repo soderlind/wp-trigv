@@ -1,0 +1,98 @@
+<?php
+/**
+ * Trigv HTTP client.
+ *
+ * @package Trigv
+ */
+
+declare(strict_types=1);
+
+namespace Trigv;
+
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Thin wrapper around the Trigv "send event" endpoint.
+ */
+final class TrigvClient {
+
+	private const ENDPOINT = 'https://api.trigv.com/api/v1/events';
+
+	private const FIELDS = array(
+		'channel',
+		'title',
+		'description',
+		'level',
+		'delivery_urgency',
+		'event_type',
+		'idempotency_key',
+		'image_url',
+	);
+
+	/**
+	 * POST a Notification to Trigv.
+	 *
+	 * @param array<string,mixed> $args    Notification args.
+	 * @param string              $api_key Bearer token.
+	 * @return array{ok:bool,http_code:int,retryable:bool,error:string}
+	 */
+	public function send( array $args, string $api_key ): array {
+		$body = array();
+		foreach ( self::FIELDS as $field ) {
+			if ( isset( $args[ $field ] ) && '' !== $args[ $field ] ) {
+				$body[ $field ] = $args[ $field ];
+			}
+		}
+
+		$response = wp_remote_post(
+			self::ENDPOINT,
+			array(
+				'timeout' => 15,
+				'headers' => array(
+					'Content-Type'  => 'application/json',
+					'Accept'        => 'application/json',
+					'Authorization' => 'Bearer ' . $api_key,
+				),
+				'body'    => wp_json_encode( $body ),
+			)
+		);
+
+		if ( is_wp_error( $response ) ) {
+			return array(
+				'ok'        => false,
+				'http_code' => 0,
+				'retryable' => true,
+				'error'     => $response->get_error_message(),
+			);
+		}
+
+		$code = (int) wp_remote_retrieve_response_code( $response );
+
+		// 2xx = success (202 queued, 200 duplicate idempotency key).
+		if ( $code >= 200 && $code < 300 ) {
+			return array(
+				'ok'        => true,
+				'http_code' => $code,
+				'retryable' => false,
+				'error'     => '',
+			);
+		}
+
+		$message = wp_remote_retrieve_response_message( $response );
+		$raw     = wp_remote_retrieve_body( $response );
+		$decoded = json_decode( $raw, true );
+		if ( is_array( $decoded ) && isset( $decoded['message'] ) ) {
+			$message = (string) $decoded['message'];
+		}
+
+		// 429 and 5xx are transient; 4xx (bad request) are not.
+		$retryable = ( 429 === $code || $code >= 500 );
+
+		return array(
+			'ok'        => false,
+			'http_code' => $code,
+			'retryable' => $retryable,
+			'error'     => (string) $message,
+		);
+	}
+}

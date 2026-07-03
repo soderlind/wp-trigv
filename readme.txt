@@ -1,0 +1,57 @@
+=== Trigv ===
+Contributors: soderlind
+Tags: notifications, push, events, webhook, trigv
+Requires at least: 6.8
+Tested up to: 6.8
+Requires PHP: 8.3
+Stable tag: 1.0.0
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Send WordPress events as push notifications via Trigv.
+
+== Description ==
+
+Trigv watches the WordPress events (Triggers) you choose and dispatches them as
+push notifications through the Trigv API. Dispatch happens asynchronously in the
+background, with retries, so your site stays fast.
+
+* Pick from a curated catalog of WordPress Triggers.
+* Map each Trigger to a Trigv channel and level, with an optional custom title/description template.
+* Fire your own notifications from code with `do_action( 'trigv_send', $args )`.
+* Shape or veto any notification with the `trigv_dispatch_args` and `trigv_pre_dispatch` filters.
+* Add-ons can register more Triggers via the `trigv_triggers` filter.
+
+== Developer API ==
+
+Send a notification:
+
+`do_action( 'trigv_send', array(
+	'channel'     => 'general',
+	'title'       => 'Deploy complete',
+	'description' => 'Build #123 shipped.',
+	'level'       => 'success',
+) );`
+
+Reshape every dispatch:
+
+`add_filter( 'trigv_dispatch_args', function ( array $args, array $context ) {
+	return $args;
+}, 10, 2 );`
+
+Veto a dispatch:
+
+`add_filter( 'trigv_pre_dispatch', function ( bool $send, array $args ) {
+	return $send;
+}, 10, 2 );`
+
+== Configuration ==
+
+Set the API key on the Trigv admin screen, or define it in `wp-config.php`:
+
+`define( 'TRIGV_API_KEY', 'trgv_xxxx_yyyy' );`
+
+== Changelog ==
+
+= 1.0.0 =
+* Initial release.

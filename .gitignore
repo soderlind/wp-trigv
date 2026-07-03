@@ -1,0 +1,17 @@
+# Dependencies
+/node_modules/
+/vendor/
+
+# Build output
+/build/
+
+# Tests
+/.phpunit.cache/
+/coverage/
+
+# Composer
+composer.phar
+
+# OS / editor
+.DS_Store
+Thumbs.db

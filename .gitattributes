@@ -1,0 +1,16 @@
+# Exclude development-only files from the release archive.
+/.github        export-ignore
+/docs           export-ignore
+/src            export-ignore
+/tests          export-ignore
+/examples       export-ignore
+/node_modules   export-ignore
+/.gitignore     export-ignore
+/.gitattributes export-ignore
+/.phpunit.cache export-ignore
+/CONTEXT.md     export-ignore
+/README.md      export-ignore
+/phpunit.xml    export-ignore
+/vitest.config.js export-ignore
+/package.json   export-ignore
+/package-lock.json export-ignore

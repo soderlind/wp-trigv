@@ -1,0 +1,53 @@
+.trigv-admin {
+	max-width: 900px;
+
+	.trigv-tabs {
+		margin-top: 1rem;
+	}
+
+	.trigv-group {
+		margin-bottom: 1rem;
+	}
+
+	.trigv-trigger {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid #f0f0f1;
+
+		&:last-child {
+			border-bottom: 0;
+		}
+
+		&__config {
+			margin: 0.5rem 0 0 1.5rem;
+			padding-left: 1rem;
+			border-left: 3px solid #e0e0e0;
+		}
+	}
+
+	.trigv-tokens {
+		color: #757575;
+		font-size: 12px;
+	}
+
+	.trigv-log {
+		margin-bottom: 1rem;
+	}
+
+	.trigv-status {
+		text-transform: capitalize;
+
+		&--sent {
+			color: #007017;
+		}
+
+		&--failed,
+		&--error {
+			color: #cc1818;
+		}
+
+		&--retrying,
+		&--vetoed {
+			color: #997404;
+		}
+	}
+}

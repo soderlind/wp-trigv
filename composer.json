@@ -1,0 +1,36 @@
+{
+	"name": "soderlind/wp-trigv",
+	"description": "Send WordPress events as push notifications via Trigv.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"php": ">=8.3",
+		"woocommerce/action-scheduler": "^3.8",
+		"soderlind/wordpress-github-updater": "^2.0"
+	},
+	"require-dev": {
+		"brain/monkey": "^2.6",
+		"phpunit/phpunit": "^11.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Trigv\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Trigv\\Tests\\": "tests/php/"
+		}
+	},
+	"scripts": {
+		"test": "phpunit"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"sort-packages": true,
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	},
+	"minimum-stability": "stable"
+}
