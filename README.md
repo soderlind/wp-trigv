@@ -65,6 +65,7 @@ define( 'TRIGV_GITHUB_TOKEN', 'ghp_xxx' );
 | Trigger | WordPress hook | Default level |
 | --- | --- | --- |
 | Post published | `transition_post_status` | success |
+| Page published | `transition_post_status` | info |
 | Post updated | `post_updated` | info |
 | New comment | `comment_post` | info |
 | Comment needs moderation | `comment_post` | warning |
@@ -111,6 +112,19 @@ add_filter( 'trigv_pre_dispatch', function ( bool $send, array $args ) {
 
 ```php
 add_filter( 'trigv_client_ip', fn( string $ip ) => hash( 'sha256', $ip ) );
+```
+
+### Widen which post types "Post published" watches
+
+By default the "Post published" Trigger fires only for posts (pages have their
+own "Page published" Trigger). Add more public post types:
+
+```php
+add_filter( 'trigv_post_published_types', function ( array $types ) {
+	$types[] = 'page';
+	$types[] = 'product';
+	return $types;
+} );
 ```
 
 ## Writing an Add-on

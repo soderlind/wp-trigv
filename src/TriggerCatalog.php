@@ -156,7 +156,47 @@ final class TriggerCatalog {
 					if ( 'publish' !== $new_status || 'publish' === $old_status ) {
 						return null;
 					}
-					if ( ! $post instanceof \WP_Post || 'post' !== $post->post_type ) {
+					if ( ! $post instanceof \WP_Post ) {
+						return null;
+					}
+					/**
+					 * Filter which post types the "Post published" Trigger watches.
+					 * Defaults to posts only; add 'page' or custom types to widen it.
+					 *
+					 * @param string[] $types Post type slugs.
+					 */
+					$types = (array) apply_filters( 'trigv_post_published_types', array( 'post' ) );
+					if ( ! in_array( $post->post_type, $types, true ) ) {
+						return null;
+					}
+					return array(
+						'post_title' => $post->post_title,
+						'post_url'   => (string) get_permalink( $post ),
+						'author'     => (string) get_the_author_meta( 'display_name', (int) $post->post_author ),
+					);
+				},
+			),
+			new Trigger(
+				id: 'page_published',
+				label: __( 'Page published', 'wp-trigv' ),
+				group: __( 'Content', 'wp-trigv' ),
+				event_type: 'page.published',
+				default_level: 'info',
+				default_title: __( 'New page published: {post_title}', 'wp-trigv' ),
+				default_description: __( 'By {author}', 'wp-trigv' ),
+				tokens: array(
+					'post_title' => __( 'Page title', 'wp-trigv' ),
+					'post_url'   => __( 'Page URL', 'wp-trigv' ),
+					'author'     => __( 'Author name', 'wp-trigv' ),
+				),
+				hook: 'transition_post_status',
+				priority: 10,
+				accepted_args: 3,
+				resolver: static function ( $new_status, $old_status, $post ): ?array {
+					if ( 'publish' !== $new_status || 'publish' === $old_status ) {
+						return null;
+					}
+					if ( ! $post instanceof \WP_Post || 'page' !== $post->post_type ) {
 						return null;
 					}
 					return array(

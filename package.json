@@ -1,6 +1,6 @@
 {
 	"name": "wp-trigv",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "Send WordPress events as push notifications via Trigv.",
 	"license": "GPL-2.0-or-later",
 	"private": true,

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 - 2026-07-03
+
+- Add a "Page published" Trigger.
+- Add the `trigv_post_published_types` filter to control which post types the
+  "Post published" Trigger watches (defaults to posts only).
+
 ## 1.0.1 - 2026-07-03
 
 - Fix REST route error ("No route was found") when saving settings — now uses

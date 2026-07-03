@@ -25,3 +25,13 @@ if ( ! class_exists( 'WP_Error' ) ) {
 		}
 	}
 }
+
+// Minimal WP_Post stand-in for resolver tests.
+if ( ! class_exists( 'WP_Post' ) ) {
+	class WP_Post {
+		public string $post_type = 'post';
+		public string $post_title = '';
+		public int $post_author = 0;
+		public string $post_status = '';
+	}
+}
