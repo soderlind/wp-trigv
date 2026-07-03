@@ -10,6 +10,7 @@
 /.phpunit.cache export-ignore
 /CONTEXT.md     export-ignore
 /README.md      export-ignore
+/DEVELOPER.md   export-ignore
 /phpunit.xml    export-ignore
 /vitest.config.js export-ignore
 /package.json   export-ignore
