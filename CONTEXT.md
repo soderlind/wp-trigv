@@ -48,6 +48,12 @@ plugin registers a curated built-in set; Add-ons extend the catalog through a
 public filter so extra Triggers (e.g. WooCommerce order events) can be shipped
 separately.
 
+### Trigger Config
+
+The admin's per-Trigger configuration: whether a Trigger is enabled, and its
+channel, level, Notification Template overrides, and delivery urgency. Held
+separately from the Trigger Catalog.
+
 ### Add-on
 
 A separate plugin that registers additional Triggers (and their Tokens /

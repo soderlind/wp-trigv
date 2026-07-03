@@ -308,7 +308,8 @@ npm run lint:js      # ESLint (src only)
 | --- | --- |
 | `Plugin` | Bootstrap and wiring |
 | `Settings` | Connection config (API key, defaults) |
-| `TriggerCatalog` / `Trigger` | Available Triggers + per-Trigger config |
+| `TriggerCatalog` / `Trigger` | Registry of available Triggers |
+| `TriggerConfig` | Per-Trigger configuration (enabled, channel, level, templates) |
 | `Notification` | Immutable notification value object — build, validate, payload |
 | `Dispatcher` | Enqueue, send, and retry Notifications |
 | `TrigvClient` | HTTP transport for the Trigv API |

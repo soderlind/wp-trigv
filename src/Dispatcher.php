@@ -26,6 +26,7 @@ final class Dispatcher {
 	public function __construct(
 		private readonly Settings $settings,
 		private readonly TriggerCatalog $catalog,
+		private readonly TriggerConfig $config,
 		private readonly Log $log,
 	) {
 		$this->client = new TrigvClient();
@@ -49,7 +50,7 @@ final class Dispatcher {
 		}
 
 		foreach ( $this->catalog->all() as $trigger ) {
-			if ( ! $this->catalog->is_enabled( $trigger->id ) ) {
+			if ( ! $this->config->is_enabled( $trigger->id ) ) {
 				continue;
 			}
 
@@ -74,7 +75,7 @@ final class Dispatcher {
 
 		$notification = Notification::from_trigger(
 			$trigger,
-			$this->catalog->config( $trigger->id ),
+			$this->config->for_trigger( $trigger->id ),
 			$this->settings->default_channel(),
 			$context
 		);

@@ -24,6 +24,7 @@ final class RestController {
 	public function __construct(
 		private readonly Settings $settings,
 		private readonly TriggerCatalog $catalog,
+		private readonly TriggerConfig $config,
 		private readonly Log $log,
 	) {
 	}
@@ -139,7 +140,7 @@ final class RestController {
 				'default_title'       => $trigger->default_title,
 				'default_description' => $trigger->default_description,
 				'tokens'              => $trigger->tokens,
-				'config'              => $this->catalog->config( $trigger->id ),
+				'config'              => $this->config->for_trigger( $trigger->id ),
 			);
 		}
 		return new WP_REST_Response( array( 'triggers' => $items ) );
@@ -147,7 +148,7 @@ final class RestController {
 
 	public function update_triggers( WP_REST_Request $request ): WP_REST_Response {
 		$input = $request->get_param( 'triggers' );
-		$this->catalog->update_config( is_array( $input ) ? $input : array() );
+		$this->config->update( is_array( $input ) ? $input : array() );
 		return $this->get_triggers();
 	}
 
