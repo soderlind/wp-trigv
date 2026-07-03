@@ -1,0 +1,381 @@
+# Copyright (C) 2026 Per Soderlind
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Trigv 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-trigv\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-03T19:26:58+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-trigv\n"
+
+#. Plugin Name of the plugin
+#: wp-trigv.php
+#: src/AdminPage.php:33
+#: src/AdminPage.php:34
+#: src/App.js:13
+msgid "Trigv"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: wp-trigv.php
+msgid "https://github.com/soderlind/wp-trigv"
+msgstr ""
+
+#. Description of the plugin
+#: wp-trigv.php
+msgid "Send WordPress events as push notifications via Trigv. Choose which events to watch, map them to Trigv channels, and dispatch asynchronously."
+msgstr ""
+
+#. Author of the plugin
+#: wp-trigv.php
+msgid "Per Soderlind"
+msgstr ""
+
+#. Author URI of the plugin
+#: wp-trigv.php
+msgid "https://soderlind.no"
+msgstr ""
+
+#: src/Dispatcher.php:103
+msgid "Developer API"
+msgstr ""
+
+#: src/Dispatcher.php:217
+#: src/Dispatcher.php:280
+msgid "No API key configured."
+msgstr ""
+
+#: src/Dispatcher.php:286
+msgid "Trigv test notification"
+msgstr ""
+
+#: src/Dispatcher.php:287
+msgid "Your WordPress site is connected to Trigv."
+msgstr ""
+
+#: src/TriggerCatalog.php:141
+msgid "Post published"
+msgstr ""
+
+#: src/TriggerCatalog.php:142
+#: src/TriggerCatalog.php:182
+#: src/TriggerCatalog.php:212
+msgid "Content"
+msgstr ""
+
+#: src/TriggerCatalog.php:145
+msgid "New post published: {post_title}"
+msgstr ""
+
+#: src/TriggerCatalog.php:146
+#: src/TriggerCatalog.php:186
+msgid "By {author}"
+msgstr ""
+
+#: src/TriggerCatalog.php:148
+#: src/TriggerCatalog.php:218
+#: src/TriggerCatalog.php:251
+#: src/TriggerCatalog.php:280
+msgid "Post title"
+msgstr ""
+
+#: src/TriggerCatalog.php:149
+#: src/TriggerCatalog.php:219
+msgid "Post URL"
+msgstr ""
+
+#: src/TriggerCatalog.php:150
+#: src/TriggerCatalog.php:190
+msgid "Author name"
+msgstr ""
+
+#: src/TriggerCatalog.php:181
+msgid "Page published"
+msgstr ""
+
+#: src/TriggerCatalog.php:185
+msgid "New page published: {post_title}"
+msgstr ""
+
+#: src/TriggerCatalog.php:188
+msgid "Page title"
+msgstr ""
+
+#: src/TriggerCatalog.php:189
+msgid "Page URL"
+msgstr ""
+
+#: src/TriggerCatalog.php:211
+msgid "Post updated"
+msgstr ""
+
+#: src/TriggerCatalog.php:215
+msgid "Post updated: {post_title}"
+msgstr ""
+
+#: src/TriggerCatalog.php:216
+msgid "{post_url}"
+msgstr ""
+
+#: src/TriggerCatalog.php:243
+msgid "New comment"
+msgstr ""
+
+#: src/TriggerCatalog.php:244
+#: src/TriggerCatalog.php:273
+msgid "Comments"
+msgstr ""
+
+#: src/TriggerCatalog.php:247
+msgid "New comment on {post_title}"
+msgstr ""
+
+#: src/TriggerCatalog.php:248
+msgid "By {comment_author}"
+msgstr ""
+
+#: src/TriggerCatalog.php:250
+#: src/TriggerCatalog.php:279
+msgid "Comment author"
+msgstr ""
+
+#: src/TriggerCatalog.php:272
+msgid "Comment needs moderation"
+msgstr ""
+
+#: src/TriggerCatalog.php:276
+msgid "Comment awaiting moderation"
+msgstr ""
+
+#: src/TriggerCatalog.php:277
+msgid "{comment_author} on {post_title}"
+msgstr ""
+
+#: src/TriggerCatalog.php:302
+msgid "New user registered"
+msgstr ""
+
+#: src/TriggerCatalog.php:303
+msgid "Users"
+msgstr ""
+
+#: src/TriggerCatalog.php:306
+msgid "New user: {user_login}"
+msgstr ""
+
+#: src/TriggerCatalog.php:307
+msgid "{user_email}"
+msgstr ""
+
+#: src/TriggerCatalog.php:309
+msgid "Username"
+msgstr ""
+
+#: src/TriggerCatalog.php:310
+msgid "Email address"
+msgstr ""
+
+#: src/TriggerCatalog.php:328
+msgid "Failed login"
+msgstr ""
+
+#: src/TriggerCatalog.php:329
+msgid "Security"
+msgstr ""
+
+#: src/TriggerCatalog.php:332
+msgid "Failed login: {username}"
+msgstr ""
+
+#: src/TriggerCatalog.php:333
+msgid "From {ip}"
+msgstr ""
+
+#: src/TriggerCatalog.php:335
+msgid "Attempted username"
+msgstr ""
+
+#: src/TriggerCatalog.php:336
+msgid "Client IP address"
+msgstr ""
+
+#: src/TriggerCatalog.php:360
+msgid "Plugin or theme updated"
+msgstr ""
+
+#: src/TriggerCatalog.php:361
+#: src/TriggerCatalog.php:393
+msgid "Maintenance"
+msgstr ""
+
+#: src/TriggerCatalog.php:364
+msgid "{type} updated"
+msgstr ""
+
+#: src/TriggerCatalog.php:365
+msgid "{name}"
+msgstr ""
+
+#: src/TriggerCatalog.php:367
+msgid "Update type (plugin/theme)"
+msgstr ""
+
+#: src/TriggerCatalog.php:368
+msgid "Updated item name(s)"
+msgstr ""
+
+#: src/TriggerCatalog.php:392
+#: src/TriggerCatalog.php:396
+msgid "Automatic updates completed"
+msgstr ""
+
+#: src/TriggerCatalog.php:397
+msgid "{status}"
+msgstr ""
+
+#: src/TriggerCatalog.php:399
+msgid "Per-type update counts"
+msgstr ""
+
+#: src/TriggerCatalog.php:410
+msgid "no updates"
+msgstr ""
+
+#: wp-trigv.php:38
+msgid "Trigv is missing its dependencies. Run \"composer install\" or install the release build."
+msgstr ""
+
+#: src/App.js:19
+msgid "Connection"
+msgstr ""
+
+#: src/App.js:21
+msgid "Triggers"
+msgstr ""
+
+#: src/App.js:22
+msgid "Log"
+msgstr ""
+
+#: src/components/Connection.js:63
+msgid "Settings saved."
+msgstr ""
+
+#: src/components/Connection.js:69
+#: src/components/Triggers.js:88
+msgid "Save failed."
+msgstr ""
+
+#: src/components/Connection.js:86
+msgid "Test notification sent."
+msgstr ""
+
+#: src/components/Connection.js:95
+msgid "Test failed."
+msgstr ""
+
+#: src/components/Connection.js:119
+msgid "The API key is defined via the TRIGV_API_KEY constant and cannot be changed here."
+msgstr ""
+
+#: src/components/Connection.js:129
+msgid "Trigv API key (saved)"
+msgstr ""
+
+#: src/components/Connection.js:130
+msgid "Trigv API key"
+msgstr ""
+
+#: src/components/Connection.js:135
+#: src/components/Connection.js:143
+msgid "Paste your trgv_… token."
+msgstr ""
+
+#: src/components/Connection.js:139
+msgid "A key is saved. Leave blank to keep it, or paste a new key to replace it."
+msgstr ""
+
+#: src/components/Connection.js:152
+msgid "Default channel"
+msgstr ""
+
+#: src/components/Connection.js:161
+msgid "Default level"
+msgstr ""
+
+#: src/components/Connection.js:177
+msgid "Save"
+msgstr ""
+
+#: src/components/Connection.js:187
+msgid "Send test"
+msgstr ""
+
+#: src/components/LogView.js:38
+msgid "No dispatches yet."
+msgstr ""
+
+#: src/components/LogView.js:44
+msgid "Time"
+msgstr ""
+
+#: src/components/LogView.js:45
+msgid "Trigger"
+msgstr ""
+
+#: src/components/LogView.js:46
+#: src/components/Triggers.js:159
+msgid "Title"
+msgstr ""
+
+#: src/components/LogView.js:47
+#: src/components/Triggers.js:131
+msgid "Channel"
+msgstr ""
+
+#: src/components/LogView.js:48
+#: src/components/Triggers.js:150
+msgid "Level"
+msgstr ""
+
+#: src/components/LogView.js:49
+msgid "Status"
+msgstr ""
+
+#: src/components/LogView.js:50
+msgid "Detail"
+msgstr ""
+
+#: src/components/LogView.js:86
+msgid "Clear log"
+msgstr ""
+
+#: src/components/Triggers.js:82
+msgid "Triggers saved."
+msgstr ""
+
+#: src/components/Triggers.js:135
+msgid "Use default channel"
+msgstr ""
+
+#: src/components/Triggers.js:168
+msgid "Description"
+msgstr ""
+
+#: src/components/Triggers.js:186
+msgid "Time-sensitive delivery"
+msgstr ""
+
+#: src/components/Triggers.js:203
+msgid "Tokens:"
+msgstr ""
+
+#: src/components/Triggers.js:219
+msgid "Save triggers"
+msgstr ""
