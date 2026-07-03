@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Trigv API documentation
+    url: https://trigv.com/docs/events/
+    about: Reference for the Trigv events API this plugin sends to.
