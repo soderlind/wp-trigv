@@ -1,10 +1,10 @@
 === Trigv ===
-Contributors: soderlind
+Contributors: PerS
 Tags: notifications, push, events, webhook, trigv
 Requires at least: 6.8
-Tested up to: 6.8
+Tested up to: 7.0
 Requires PHP: 8.3
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,11 @@ Set the API key on the Trigv admin screen, or define it in `wp-config.php`:
 `define( 'TRIGV_API_KEY', 'trgv_xxxx_yyyy' );`
 
 == Changelog ==
+
+= 1.0.1 =
+* Fix REST route error ("No route was found") when saving settings — now uses WordPress core's apiFetch configuration with full REST paths.
+* Show saved-key state in the API key field (label and masked placeholder).
+* Pre-fill Trigger title and description fields with their default templates.
 
 = 1.0.0 =
 * Initial release.

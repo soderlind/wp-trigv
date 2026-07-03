@@ -58,10 +58,16 @@ export default function Connection() {
 			.then( ( data ) => {
 				setSettings( data );
 				setApiKey( '' );
-				setNotice( { status: 'success', text: __( 'Settings saved.', 'wp-trigv' ) } );
+				setNotice( {
+					status: 'success',
+					text: __( 'Settings saved.', 'wp-trigv' ),
+				} );
 			} )
 			.catch( ( err ) =>
-				setNotice( { status: 'error', text: err.message || __( 'Save failed.', 'wp-trigv' ) } )
+				setNotice( {
+					status: 'error',
+					text: err.message || __( 'Save failed.', 'wp-trigv' ),
+				} )
 			)
 			.finally( () => setSaving( false ) );
 	};
@@ -75,12 +81,18 @@ export default function Connection() {
 			data: { channel: settings.default_channel },
 		} )
 			.then( () =>
-				setNotice( { status: 'success', text: __( 'Test notification sent.', 'wp-trigv' ) } )
+				setNotice( {
+					status: 'success',
+					text: __( 'Test notification sent.', 'wp-trigv' ),
+				} )
 			)
 			.catch( ( err ) =>
 				setNotice( {
 					status: 'error',
-					text: err.error || err.message || __( 'Test failed.', 'wp-trigv' ),
+					text:
+						err.error ||
+						err.message ||
+						__( 'Test failed.', 'wp-trigv' ),
 				} )
 			)
 			.finally( () => setTesting( false ) );
@@ -94,7 +106,10 @@ export default function Connection() {
 		<Card>
 			<CardBody>
 				{ notice && (
-					<Notice status={ notice.status } onRemove={ () => setNotice( null ) }>
+					<Notice
+						status={ notice.status }
+						onRemove={ () => setNotice( null ) }
+					>
 						{ notice.text }
 					</Notice>
 				) }
@@ -136,7 +151,9 @@ export default function Connection() {
 				<TextControl
 					label={ __( 'Default channel', 'wp-trigv' ) }
 					value={ settings.default_channel }
-					onChange={ ( v ) => setSettings( { ...settings, default_channel: v } ) }
+					onChange={ ( v ) =>
+						setSettings( { ...settings, default_channel: v } )
+					}
 					__next40pxDefaultSize
 				/>
 
@@ -144,13 +161,19 @@ export default function Connection() {
 					label={ __( 'Default level', 'wp-trigv' ) }
 					value={ settings.default_level }
 					options={ LEVELS }
-					onChange={ ( v ) => setSettings( { ...settings, default_level: v } ) }
+					onChange={ ( v ) =>
+						setSettings( { ...settings, default_level: v } )
+					}
 					__next40pxDefaultSize
 				/>
 
 				<Flex justify="flex-start" gap={ 3 }>
 					<FlexItem>
-						<Button variant="primary" onClick={ save } isBusy={ saving }>
+						<Button
+							variant="primary"
+							onClick={ save }
+							isBusy={ saving }
+						>
 							{ __( 'Save', 'wp-trigv' ) }
 						</Button>
 					</FlexItem>

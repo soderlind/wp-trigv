@@ -13,7 +13,6 @@ import {
 	Button,
 	Notice,
 	Spinner,
-	__experimentalText as Text,
 } from '@wordpress/components';
 import apiFetch from '../api';
 import { groupByGroup } from '../utils';
@@ -28,6 +27,8 @@ const LEVELS = [
 /**
  * Pre-fill empty title/description with each Trigger's default template so the
  * fields show editable default content rather than an empty placeholder.
+ * @param {Array} list Triggers with their config.
+ * @return {Array} Triggers with hydrated title/description.
  */
 function hydrate( list ) {
 	return list.map( ( t ) => ( {
@@ -55,7 +56,9 @@ export default function Triggers() {
 	const updateConfig = ( id, key, value ) => {
 		setTriggers( ( prev ) =>
 			prev.map( ( t ) =>
-				t.id === id ? { ...t, config: { ...t.config, [ key ]: value } } : t
+				t.id === id
+					? { ...t, config: { ...t.config, [ key ]: value } }
+					: t
 			)
 		);
 	};
@@ -67,13 +70,23 @@ export default function Triggers() {
 		triggers.forEach( ( t ) => {
 			payload[ t.id ] = t.config;
 		} );
-		apiFetch( { path: '/trigv/v1/triggers', method: 'POST', data: { triggers: payload } } )
+		apiFetch( {
+			path: '/trigv/v1/triggers',
+			method: 'POST',
+			data: { triggers: payload },
+		} )
 			.then( ( data ) => {
 				setTriggers( hydrate( data.triggers || [] ) );
-				setNotice( { status: 'success', text: __( 'Triggers saved.', 'wp-trigv' ) } );
+				setNotice( {
+					status: 'success',
+					text: __( 'Triggers saved.', 'wp-trigv' ),
+				} );
 			} )
 			.catch( ( err ) =>
-				setNotice( { status: 'error', text: err.message || __( 'Save failed.', 'wp-trigv' ) } )
+				setNotice( {
+					status: 'error',
+					text: err.message || __( 'Save failed.', 'wp-trigv' ),
+				} )
 			)
 			.finally( () => setSaving( false ) );
 	};
@@ -87,7 +100,10 @@ export default function Triggers() {
 	return (
 		<div className="trigv-triggers">
 			{ notice && (
-				<Notice status={ notice.status } onRemove={ () => setNotice( null ) }>
+				<Notice
+					status={ notice.status }
+					onRemove={ () => setNotice( null ) }
+				>
 					{ notice.text }
 				</Notice>
 			) }
@@ -95,7 +111,7 @@ export default function Triggers() {
 			{ Object.keys( groups ).map( ( group ) => (
 				<Card key={ group } className="trigv-group">
 					<CardHeader>
-						<Text weight={ 600 }>{ group }</Text>
+						<strong>{ group }</strong>
 					</CardHeader>
 					<CardBody>
 						{ groups[ group ].map( ( t ) => (
@@ -103,50 +119,92 @@ export default function Triggers() {
 								<ToggleControl
 									label={ t.label }
 									checked={ !! t.config.enabled }
-									onChange={ ( v ) => updateConfig( t.id, 'enabled', v ) }
+									onChange={ ( v ) =>
+										updateConfig( t.id, 'enabled', v )
+									}
 									__nextHasNoMarginBottom
 								/>
 
 								{ t.config.enabled && (
 									<div className="trigv-trigger__config">
 										<TextControl
-											label={ __( 'Channel', 'wp-trigv' ) }
-											placeholder={ __( 'Use default channel', 'wp-trigv' ) }
+											label={ __(
+												'Channel',
+												'wp-trigv'
+											) }
+											placeholder={ __(
+												'Use default channel',
+												'wp-trigv'
+											) }
 											value={ t.config.channel }
-											onChange={ ( v ) => updateConfig( t.id, 'channel', v ) }
+											onChange={ ( v ) =>
+												updateConfig(
+													t.id,
+													'channel',
+													v
+												)
+											}
 											__next40pxDefaultSize
 										/>
 										<SelectControl
 											label={ __( 'Level', 'wp-trigv' ) }
 											value={ t.config.level }
 											options={ LEVELS }
-											onChange={ ( v ) => updateConfig( t.id, 'level', v ) }
+											onChange={ ( v ) =>
+												updateConfig( t.id, 'level', v )
+											}
 											__next40pxDefaultSize
 										/>
 										<TextControl
 											label={ __( 'Title', 'wp-trigv' ) }
 											placeholder={ t.default_title }
 											value={ t.config.title }
-											onChange={ ( v ) => updateConfig( t.id, 'title', v ) }
+											onChange={ ( v ) =>
+												updateConfig( t.id, 'title', v )
+											}
 											__next40pxDefaultSize
 										/>
 										<TextControl
-											label={ __( 'Description', 'wp-trigv' ) }
-											placeholder={ t.default_description }
+											label={ __(
+												'Description',
+												'wp-trigv'
+											) }
+											placeholder={
+												t.default_description
+											}
 											value={ t.config.description }
-											onChange={ ( v ) => updateConfig( t.id, 'description', v ) }
+											onChange={ ( v ) =>
+												updateConfig(
+													t.id,
+													'description',
+													v
+												)
+											}
 											__next40pxDefaultSize
 										/>
 										<ToggleControl
-											label={ __( 'Time-sensitive delivery', 'wp-trigv' ) }
-											checked={ !! t.config.time_sensitive }
-											onChange={ ( v ) => updateConfig( t.id, 'time_sensitive', v ) }
+											label={ __(
+												'Time-sensitive delivery',
+												'wp-trigv'
+											) }
+											checked={
+												!! t.config.time_sensitive
+											}
+											onChange={ ( v ) =>
+												updateConfig(
+													t.id,
+													'time_sensitive',
+													v
+												)
+											}
 											__nextHasNoMarginBottom
 										/>
 										<p className="trigv-tokens">
 											{ __( 'Tokens:', 'wp-trigv' ) }{ ' ' }
 											{ Object.keys( t.tokens )
-												.map( ( token ) => `{${ token }}` )
+												.map(
+													( token ) => `{${ token }}`
+												)
 												.join( ', ' ) }
 										</p>
 									</div>

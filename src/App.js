@@ -14,7 +14,10 @@ export default function App() {
 			<TabPanel
 				className="trigv-tabs"
 				tabs={ [
-					{ name: 'connection', title: __( 'Connection', 'wp-trigv' ) },
+					{
+						name: 'connection',
+						title: __( 'Connection', 'wp-trigv' ),
+					},
 					{ name: 'triggers', title: __( 'Triggers', 'wp-trigv' ) },
 					{ name: 'log', title: __( 'Log', 'wp-trigv' ) },
 				] }

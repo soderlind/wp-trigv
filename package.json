@@ -1,13 +1,13 @@
 {
 	"name": "wp-trigv",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Send WordPress events as push notifications via Trigv.",
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"scripts": {
 		"build": "wp-scripts build",
 		"start": "wp-scripts start",
-		"lint:js": "wp-scripts lint-js",
+		"lint:js": "wp-scripts lint-js src",
 		"format": "wp-scripts format",
 		"test": "vitest run",
 		"test:watch": "vitest"

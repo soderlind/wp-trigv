@@ -18,7 +18,7 @@ export function groupByGroup( items ) {
 /**
  * Format a Unix timestamp (seconds) for display.
  *
- * @param {number} ts     Unix timestamp in seconds.
+ * @param {number} ts       Unix timestamp in seconds.
  * @param {string} [locale] Optional locale.
  * @return {string} Localized date-time string, or '' when falsy.
  */

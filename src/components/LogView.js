@@ -21,7 +21,9 @@ export default function LogView() {
 	useEffect( load, [] );
 
 	const clear = () => {
-		apiFetch( { path: '/trigv/v1/log', method: 'DELETE' } ).then( () => setEntries( [] ) );
+		apiFetch( { path: '/trigv/v1/log', method: 'DELETE' } ).then( () =>
+			setEntries( [] )
+		);
 	};
 
 	if ( loading ) {
@@ -57,11 +59,18 @@ export default function LogView() {
 									<td>{ e.channel }</td>
 									<td>{ e.level }</td>
 									<td>
-										<span className={ `trigv-status trigv-status--${ e.status }` }>
+										<span
+											className={ `trigv-status trigv-status--${ e.status }` }
+										>
 											{ e.status }
 										</span>
 									</td>
-									<td>{ e.error || ( e.http_code ? `HTTP ${ e.http_code }` : '' ) }</td>
+									<td>
+										{ e.error ||
+											( e.http_code
+												? `HTTP ${ e.http_code }`
+												: '' ) }
+									</td>
 								</tr>
 							) ) }
 						</tbody>
@@ -69,7 +78,11 @@ export default function LogView() {
 				) }
 
 				<p>
-					<Button variant="secondary" onClick={ clear } disabled={ entries.length === 0 }>
+					<Button
+						variant="secondary"
+						onClick={ clear }
+						disabled={ entries.length === 0 }
+					>
 						{ __( 'Clear log', 'wp-trigv' ) }
 					</Button>
 				</p>
