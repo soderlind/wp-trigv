@@ -7,6 +7,9 @@ as push notifications (**Notifications**) through the Trigv API. Dispatch happen
 asynchronously in the background via Action Scheduler, with retries, so your site
 stays fast.
 
+<img width="100%" alt="Screenshot 2026-07-03 at 16 54 25" src="https://github.com/user-attachments/assets/c3d27774-de41-4f61-8383-c3d4a7d3c8a5" />
+
+
 ## Features
 
 - Curated catalog of built-in WordPress Triggers (posts, comments, users,
