@@ -18,32 +18,14 @@ final class TrigvClient {
 
 	private const ENDPOINT = 'https://api.trigv.com/api/v1/events';
 
-	private const FIELDS = array(
-		'channel',
-		'title',
-		'description',
-		'level',
-		'delivery_urgency',
-		'event_type',
-		'idempotency_key',
-		'image_url',
-	);
-
 	/**
-	 * POST a Notification to Trigv.
+	 * POST a wire-ready Notification payload to Trigv.
 	 *
-	 * @param array<string,mixed> $args    Notification args.
+	 * @param array<string,mixed> $payload Notification payload (see Notification::to_payload()).
 	 * @param string              $api_key Bearer token.
 	 * @return array{ok:bool,http_code:int,retryable:bool,error:string}
 	 */
-	public function send( array $args, string $api_key ): array {
-		$body = array();
-		foreach ( self::FIELDS as $field ) {
-			if ( isset( $args[ $field ] ) && '' !== $args[ $field ] ) {
-				$body[ $field ] = $args[ $field ];
-			}
-		}
-
+	public function send( array $payload, string $api_key ): array {
 		$response = wp_remote_post(
 			self::ENDPOINT,
 			array(
@@ -53,7 +35,7 @@ final class TrigvClient {
 					'Accept'        => 'application/json',
 					'Authorization' => 'Bearer ' . $api_key,
 				),
-				'body'    => wp_json_encode( $body ),
+				'body'    => wp_json_encode( $payload ),
 			)
 		);
 
