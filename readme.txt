@@ -4,7 +4,7 @@ Tags: notifications, push, events, webhook, trigv
 Requires at least: 6.8
 Tested up to: 7.0
 Requires PHP: 8.3
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,9 @@ Set the API key on the Trigv admin screen, or define it in `wp-config.php`:
 `define( 'TRIGV_API_KEY', 'trgv_xxxx_yyyy' );`
 
 == Changelog ==
+
+= 1.2.1 =
+* Add a `User-Agent` identifier header on requests to Trigv, plus a `trigv_request_headers` filter to add or override request headers.
 
 = 1.2.0 =
 * Internal: introduce an immutable `Notification` value object; the Trigv HTTP client is now transport-only.

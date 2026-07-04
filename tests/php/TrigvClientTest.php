@@ -34,6 +34,24 @@ final class TrigvClientTest extends UnitTestCase {
 		$this->assertFalse( $result['retryable'] );
 	}
 
+	public function test_sends_identifier_user_agent_header(): void {
+		Functions\when( 'is_wp_error' )->justReturn( false );
+		Functions\when( 'wp_remote_retrieve_response_code' )->justReturn( 202 );
+
+		$captured = null;
+		Functions\expect( 'wp_remote_post' )->once()->andReturnUsing(
+			function ( $url, $args ) use ( &$captured ) {
+				$captured = $args;
+				return array();
+			}
+		);
+
+		( new TrigvClient() )->send( array( 'channel' => 'c', 'title' => 't' ), 'trgv_key' );
+
+		$this->assertSame( 'wp-trigv/test', $captured['headers']['User-Agent'] );
+		$this->assertSame( 'Bearer trgv_key', $captured['headers']['Authorization'] );
+	}
+
 	public function test_500_is_retryable(): void {
 		Functions\when( 'is_wp_error' )->justReturn( false );
 		Functions\when( 'wp_remote_post' )->justReturn( array() );

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1 - 2026-07-04
+
+- Add a `User-Agent: wp-trigv/<version>` identifier header on requests to Trigv,
+  plus a `trigv_request_headers` filter to add or override request headers.
+
 ## 1.2.0 - 2026-07-03
 
 - Internal: introduce an immutable `Notification` value object; the Trigv HTTP

@@ -1,6 +1,6 @@
 {
 	"name": "wp-trigv",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Send WordPress events as push notifications via Trigv.",
 	"license": "GPL-2.0-or-later",
 	"private": true,
@@ -24,5 +24,14 @@
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"vitest": "^3.0.0"
+	},
+	"overrides": {
+		"serialize-javascript": "^7.0.5",
+		"@babel/core": "^7.29.6",
+		"esbuild": "^0.28.1",
+		"markdown-it": "^14.2.0",
+		"uuid": "^11.1.1",
+		"webpack-dev-server": "^5.2.5",
+		"minimatch": "^9.0.7"
 	}
 }
