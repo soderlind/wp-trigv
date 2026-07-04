@@ -3,7 +3,7 @@
  * Plugin Name:       Trigv
  * Plugin URI:        https://github.com/soderlind/wp-trigv
  * Description:       Send WordPress events as push notifications via Trigv. Choose which events to watch, map them to Trigv channels, and dispatch asynchronously.
- * Version:           1.2.0
+ * Version:           1.2.1
  * Requires at least: 6.8
  * Requires PHP:      8.3
  * Author:            Per Soderlind
@@ -22,7 +22,7 @@ namespace Trigv;
 
 defined( 'ABSPATH' ) || exit;
 
-const VERSION = '1.2.0';
+const VERSION = '1.2.1';
 
 define( 'Trigv\\FILE', __FILE__ );
 define( 'Trigv\\DIR', plugin_dir_path( __FILE__ ) );
