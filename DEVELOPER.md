@@ -149,6 +149,19 @@ Privacy-first (store a hashed IP instead of the raw address):
 add_filter( 'trigv_client_ip', fn( string $ip ) => hash( 'sha256', $ip . wp_salt() ) );
 ```
 
+## Adding headers to Trigv requests — `trigv_request_headers`
+
+Every request to the Trigv API sends a `User-Agent: wp-trigv/<version>`
+identifier alongside the required headers. Add or override headers here — e.g.
+a client/site identifier:
+
+```php
+add_filter( 'trigv_request_headers', function ( array $headers ) {
+	$headers['X-Trigv-Client'] = 'my-site-id';
+	return $headers;
+} );
+```
+
 ## Widening "Post published" — `trigv_post_published_types`
 
 By default the "Post published" Trigger fires only for `post`. Pages have their

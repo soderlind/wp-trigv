@@ -26,15 +26,25 @@ final class TrigvClient {
 	 * @return array{ok:bool,http_code:int,retryable:bool,error:string}
 	 */
 	public function send( array $payload, string $api_key ): array {
+		$headers = array(
+			'Content-Type'  => 'application/json',
+			'Accept'        => 'application/json',
+			'Authorization' => 'Bearer ' . $api_key,
+			'User-Agent'    => 'wp-trigv/' . VERSION,
+		);
+
+		/**
+		 * Filter the HTTP headers sent with each Trigv request.
+		 *
+		 * @param array<string,string> $headers Request headers.
+		 */
+		$headers = (array) apply_filters( 'trigv_request_headers', $headers );
+
 		$response = wp_remote_post(
 			self::ENDPOINT,
 			array(
 				'timeout' => 15,
-				'headers' => array(
-					'Content-Type'  => 'application/json',
-					'Accept'        => 'application/json',
-					'Authorization' => 'Bearer ' . $api_key,
-				),
+				'headers' => $headers,
 				'body'    => wp_json_encode( $payload ),
 			)
 		);
