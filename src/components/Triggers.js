@@ -79,13 +79,18 @@ export default function Triggers() {
 				setTriggers( hydrate( data.triggers || [] ) );
 				setNotice( {
 					status: 'success',
-					text: __( 'Triggers saved.', 'push-notifications-for-trigv' ),
+					text: __(
+						'Triggers saved.',
+						'push-notifications-for-trigv'
+					),
 				} );
 			} )
 			.catch( ( err ) =>
 				setNotice( {
 					status: 'error',
-					text: err.message || __( 'Save failed.', 'push-notifications-for-trigv' ),
+					text:
+						err.message ||
+						__( 'Save failed.', 'push-notifications-for-trigv' ),
 				} )
 			)
 			.finally( () => setSaving( false ) );
@@ -147,7 +152,10 @@ export default function Triggers() {
 											__next40pxDefaultSize
 										/>
 										<SelectControl
-											label={ __( 'Level', 'push-notifications-for-trigv' ) }
+											label={ __(
+												'Level',
+												'push-notifications-for-trigv'
+											) }
 											value={ t.config.level }
 											options={ LEVELS }
 											onChange={ ( v ) =>
@@ -156,7 +164,10 @@ export default function Triggers() {
 											__next40pxDefaultSize
 										/>
 										<TextControl
-											label={ __( 'Title', 'push-notifications-for-trigv' ) }
+											label={ __(
+												'Title',
+												'push-notifications-for-trigv'
+											) }
 											placeholder={ t.default_title }
 											value={ t.config.title }
 											onChange={ ( v ) =>
@@ -200,7 +211,10 @@ export default function Triggers() {
 											__nextHasNoMarginBottom
 										/>
 										<p className="trigv-tokens">
-											{ __( 'Tokens:', 'push-notifications-for-trigv' ) }{ ' ' }
+											{ __(
+												'Tokens:',
+												'push-notifications-for-trigv'
+											) }{ ' ' }
 											{ Object.keys( t.tokens )
 												.map(
 													( token ) => `{${ token }}`

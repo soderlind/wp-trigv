@@ -60,13 +60,18 @@ export default function Connection() {
 				setApiKey( '' );
 				setNotice( {
 					status: 'success',
-					text: __( 'Settings saved.', 'push-notifications-for-trigv' ),
+					text: __(
+						'Settings saved.',
+						'push-notifications-for-trigv'
+					),
 				} );
 			} )
 			.catch( ( err ) =>
 				setNotice( {
 					status: 'error',
-					text: err.message || __( 'Save failed.', 'push-notifications-for-trigv' ),
+					text:
+						err.message ||
+						__( 'Save failed.', 'push-notifications-for-trigv' ),
 				} )
 			)
 			.finally( () => setSaving( false ) );
@@ -83,7 +88,10 @@ export default function Connection() {
 			.then( () =>
 				setNotice( {
 					status: 'success',
-					text: __( 'Test notification sent.', 'push-notifications-for-trigv' ),
+					text: __(
+						'Test notification sent.',
+						'push-notifications-for-trigv'
+					),
 				} )
 			)
 			.catch( ( err ) =>
@@ -126,13 +134,22 @@ export default function Connection() {
 						type="password"
 						label={
 							settings.has_api_key
-								? __( 'Trigv API key (saved)', 'push-notifications-for-trigv' )
-								: __( 'Trigv API key', 'push-notifications-for-trigv' )
+								? __(
+										'Trigv API key (saved)',
+										'push-notifications-for-trigv'
+								  )
+								: __(
+										'Trigv API key',
+										'push-notifications-for-trigv'
+								  )
 						}
 						placeholder={
 							settings.has_api_key
 								? settings.masked_key
-								: __( 'Paste your trgv_… token.', 'push-notifications-for-trigv' )
+								: __(
+										'Paste your trgv_… token.',
+										'push-notifications-for-trigv'
+								  )
 						}
 						help={
 							settings.has_api_key
@@ -140,7 +157,10 @@ export default function Connection() {
 										'A key is saved. Leave blank to keep it, or paste a new key to replace it.',
 										'push-notifications-for-trigv'
 								  )
-								: __( 'Paste your trgv_… token.', 'push-notifications-for-trigv' )
+								: __(
+										'Paste your trgv_… token.',
+										'push-notifications-for-trigv'
+								  )
 						}
 						value={ apiKey }
 						onChange={ setApiKey }
@@ -149,7 +169,10 @@ export default function Connection() {
 				) }
 
 				<TextControl
-					label={ __( 'Default channel', 'push-notifications-for-trigv' ) }
+					label={ __(
+						'Default channel',
+						'push-notifications-for-trigv'
+					) }
 					value={ settings.default_channel }
 					onChange={ ( v ) =>
 						setSettings( { ...settings, default_channel: v } )
@@ -158,7 +181,10 @@ export default function Connection() {
 				/>
 
 				<SelectControl
-					label={ __( 'Default level', 'push-notifications-for-trigv' ) }
+					label={ __(
+						'Default level',
+						'push-notifications-for-trigv'
+					) }
 					value={ settings.default_level }
 					options={ LEVELS }
 					onChange={ ( v ) =>
@@ -184,7 +210,10 @@ export default function Connection() {
 							isBusy={ testing }
 							disabled={ ! settings.has_api_key }
 						>
-							{ __( 'Send test', 'push-notifications-for-trigv' ) }
+							{ __(
+								'Send test',
+								'push-notifications-for-trigv'
+							) }
 						</Button>
 					</FlexItem>
 				</Flex>
