@@ -16,10 +16,19 @@ export default function App() {
 				tabs={ [
 					{
 						name: 'connection',
-						title: __( 'Connection', 'push-notifications-for-trigv' ),
+						title: __(
+							'Connection',
+							'push-notifications-for-trigv'
+						),
 					},
-					{ name: 'triggers', title: __( 'Triggers', 'push-notifications-for-trigv' ) },
-					{ name: 'log', title: __( 'Log', 'push-notifications-for-trigv' ) },
+					{
+						name: 'triggers',
+						title: __( 'Triggers', 'push-notifications-for-trigv' ),
+					},
+					{
+						name: 'log',
+						title: __( 'Log', 'push-notifications-for-trigv' ),
+					},
 				] }
 			>
 				{ ( tab ) => {

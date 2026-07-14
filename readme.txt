@@ -4,7 +4,7 @@ Tags: notifications, push, events, webhook, trigv
 Requires at least: 6.8
 Tested up to: 7.0
 Requires PHP: 8.3
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,9 @@ Terms of Service: https://trigv.com/terms
 Privacy Policy: https://trigv.com/legal/privacy-policy
 
 == Changelog ==
+
+= 2.0.1 =
+* Update the bundled Action Scheduler library to 4.0.0.
 
 = 2.0.0 =
 * Prepared for the WordPress.org Plugin Directory: renamed to "Push Notifications for Trigv" with text domain `push-notifications-for-trigv`.

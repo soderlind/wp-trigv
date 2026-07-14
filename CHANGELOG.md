@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 - 2026-07-14
+
+- Update the bundled Action Scheduler library to 4.0.0.
+
 ## 2.0.0 - 2026-07-14
 
 - Prepared for the WordPress.org Plugin Directory: renamed to **Push

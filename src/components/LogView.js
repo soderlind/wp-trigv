@@ -35,19 +35,57 @@ export default function LogView() {
 			<CardBody>
 				{ entries.length === 0 ? (
 					<Notice status="info" isDismissible={ false }>
-						{ __( 'No dispatches yet.', 'push-notifications-for-trigv' ) }
+						{ __(
+							'No dispatches yet.',
+							'push-notifications-for-trigv'
+						) }
 					</Notice>
 				) : (
 					<table className="widefat striped trigv-log">
 						<thead>
 							<tr>
-								<th>{ __( 'Time', 'push-notifications-for-trigv' ) }</th>
-								<th>{ __( 'Trigger', 'push-notifications-for-trigv' ) }</th>
-								<th>{ __( 'Title', 'push-notifications-for-trigv' ) }</th>
-								<th>{ __( 'Channel', 'push-notifications-for-trigv' ) }</th>
-								<th>{ __( 'Level', 'push-notifications-for-trigv' ) }</th>
-								<th>{ __( 'Status', 'push-notifications-for-trigv' ) }</th>
-								<th>{ __( 'Detail', 'push-notifications-for-trigv' ) }</th>
+								<th>
+									{ __(
+										'Time',
+										'push-notifications-for-trigv'
+									) }
+								</th>
+								<th>
+									{ __(
+										'Trigger',
+										'push-notifications-for-trigv'
+									) }
+								</th>
+								<th>
+									{ __(
+										'Title',
+										'push-notifications-for-trigv'
+									) }
+								</th>
+								<th>
+									{ __(
+										'Channel',
+										'push-notifications-for-trigv'
+									) }
+								</th>
+								<th>
+									{ __(
+										'Level',
+										'push-notifications-for-trigv'
+									) }
+								</th>
+								<th>
+									{ __(
+										'Status',
+										'push-notifications-for-trigv'
+									) }
+								</th>
+								<th>
+									{ __(
+										'Detail',
+										'push-notifications-for-trigv'
+									) }
+								</th>
 							</tr>
 						</thead>
 						<tbody>
