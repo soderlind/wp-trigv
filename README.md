@@ -1,6 +1,6 @@
 # Push Notifications for Trigv
 
-> Renamed to **Push Notifications for Trigv** in version 2.0.0, previously known as **Trigv for WordPress**. Did this to comply with WordPress.org Plugin Directory naming rules, and to clarify that the plugin is a Trigv client, not a Trigv service.
+> Renamed to **Push Notifications for Trigv** in version 2.0.0, previously known as **Trigv for WordPress**. Did this to comply with WordPress.org Plugin Directory naming rules, and to clarify that the plugin is a Trigv client, not a Trigv service. Plugin is submitted to the WordPress.org Plugin Directory and I'm awaiting review. See [ADR 0004](docs/adr/0004-wporg-distribution.md) for details.
 
 Send WordPress events as push notifications via [Trigv](https://trigv.com).
 
