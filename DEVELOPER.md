@@ -325,7 +325,8 @@ npm run lint:js      # ESLint (src only)
 | `TriggerConfig` | Per-Trigger configuration (enabled, channel, level, templates) |
 | `Notification` | Immutable notification value object — build, validate, payload |
 | `Dispatcher` | Enqueue, send, and retry Notifications |
-| `TrigvClient` | HTTP transport for the Trigv API |
+| `TrigvClient` | Adapts the [trigv-php](https://github.com/Trigv/trigv-php) SDK to the dispatch contract |
+| `WpHttpClient` | Routes SDK requests through the WordPress HTTP API |
 | `RestController` | `trigv/v1` REST routes for the admin app |
 | `AdminPage` | Menu + React app mount |
 | `Log` | Recent-dispatch ring buffer |

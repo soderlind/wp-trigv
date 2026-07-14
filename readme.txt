@@ -4,7 +4,7 @@ Tags: notifications, push, events, webhook, trigv
 Requires at least: 6.8
 Tested up to: 7.0
 Requires PHP: 8.3
-Stable tag: 1.2.1
+Stable tag: 1.3.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,10 @@ Set the API key on the Trigv admin screen, or define it in `wp-config.php`:
 `define( 'TRIGV_API_KEY', 'trgv_xxxx_yyyy' );`
 
 == Changelog ==
+
+= 1.3.0 =
+* Send events using the official trigv-php SDK for request building, validation, and typed error handling.
+* Route SDK requests through the WordPress HTTP API via a new `WpHttpClient` adapter, preserving proxy/SSL config and the `trigv_request_headers` filter. Asynchronous retries are unchanged.
 
 = 1.2.1 =
 * Add a `User-Agent` identifier header on requests to Trigv, plus a `trigv_request_headers` filter to add or override request headers.

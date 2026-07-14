@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "954487a0275d67a08fd412d25c21613b",
+    "content-hash": "77bb06ff666f83cf2f948e1313b0904f",
     "packages": [
         {
             "name": "soderlind/wordpress-github-updater",
@@ -53,6 +53,60 @@
                 "source": "https://github.com/soderlind/wordpress-plugin-github-updater"
             },
             "time": "2026-04-05T15:53:28+00:00"
+        },
+        {
+            "name": "trigv/trigv",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Trigv/trigv-php.git",
+                "reference": "ba02ba94756d8243eb04154ab60dd7605986421c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Trigv/trigv-php/zipball/ba02ba94756d8243eb04154ab60dd7605986421c",
+                "reference": "ba02ba94756d8243eb04154ab60dd7605986421c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.22",
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^11.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Trigv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Trigv",
+                    "homepage": "https://trigv.com"
+                }
+            ],
+            "description": "Official Trigv SDK for PHP — send notification events to your workspace",
+            "homepage": "https://github.com/Trigv/trigv-php",
+            "keywords": [
+                "notifications",
+                "push",
+                "sdk",
+                "trigv"
+            ],
+            "support": {
+                "issues": "https://github.com/Trigv/trigv-php/issues",
+                "source": "https://github.com/Trigv/trigv-php"
+            },
+            "time": "2026-07-07T11:10:05+00:00"
         },
         {
             "name": "woocommerce/action-scheduler",

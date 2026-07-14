@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.0 - 2026-07-14
+
+- Send events using the official [trigv-php](https://github.com/Trigv/trigv-php)
+  SDK for request building, validation, and typed error handling.
+- Route SDK requests through the WordPress HTTP API via a new `WpHttpClient`
+  adapter, preserving proxy/SSL config and the `trigv_request_headers` filter.
+  Asynchronous Action Scheduler retries are unchanged.
+
 ## 1.2.1 - 2026-07-04
 
 - Add a `User-Agent: wp-trigv/<version>` identifier header on requests to Trigv,
