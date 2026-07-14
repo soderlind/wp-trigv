@@ -1,4 +1,4 @@
-# Trigv
+# Push Notifications for Trigv
 
 Send WordPress events as push notifications via [Trigv](https://trigv.com).
 
