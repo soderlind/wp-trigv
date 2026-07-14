@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Trigv;
+namespace Soderlind\Trigv;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -103,7 +103,7 @@ final class Dispatcher {
 
 		$this->enqueue(
 			$notification,
-			array( 'source' => 'manual', 'trigger' => __( 'Developer API', 'wp-trigv' ) )
+			array( 'source' => 'manual', 'trigger' => __( 'Developer API', 'push-notifications-for-trigv' ) )
 		);
 	}
 
@@ -175,7 +175,7 @@ final class Dispatcher {
 
 		$api_key = $this->settings->get_api_key();
 		if ( '' === $api_key ) {
-			$this->log_dispatch( $notification, $trigger, 'error', 0, __( 'No API key configured.', 'wp-trigv' ) );
+			$this->log_dispatch( $notification, $trigger, 'error', 0, __( 'No API key configured.', 'push-notifications-for-trigv' ) );
 			return;
 		}
 
@@ -226,13 +226,13 @@ final class Dispatcher {
 	public function send_test( string $channel ): array {
 		$api_key = $this->settings->get_api_key();
 		if ( '' === $api_key ) {
-			return array( 'ok' => false, 'http_code' => 0, 'retryable' => false, 'error' => __( 'No API key configured.', 'wp-trigv' ) );
+			return array( 'ok' => false, 'http_code' => 0, 'retryable' => false, 'error' => __( 'No API key configured.', 'push-notifications-for-trigv' ) );
 		}
 
 		$notification = new Notification(
 			channel: '' !== $channel ? $channel : $this->settings->default_channel(),
-			title: __( 'Trigv test notification', 'wp-trigv' ),
-			description: __( 'Your WordPress site is connected to Trigv.', 'wp-trigv' ),
+			title: __( 'Trigv test notification', 'push-notifications-for-trigv' ),
+			description: __( 'Your WordPress site is connected to Trigv.', 'push-notifications-for-trigv' ),
 			level: 'success',
 			event_type: 'trigv.test',
 			idempotency_key: 'trigv_test_' . wp_generate_uuid4(),

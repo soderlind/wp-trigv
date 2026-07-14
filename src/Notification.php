@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-namespace Trigv;
+namespace Soderlind\Trigv;
 
 defined( 'ABSPATH' ) || exit;
 

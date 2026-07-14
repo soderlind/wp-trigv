@@ -5,7 +5,7 @@
  * Version:           1.0.0
  * Requires at least: 6.8
  * Requires PHP:      8.3
- * Requires Plugins:  wp-trigv, woocommerce
+ * Requires Plugins:  push-notifications-for-trigv, woocommerce
  * License:           GPL-2.0-or-later
  * Text Domain:       wc-trigv
  *

@@ -23,9 +23,9 @@ delete_option( 'trigv_log' );
 
 // Multisite: clean each site.
 if ( is_multisite() ) {
-	$site_ids = get_sites( array( 'fields' => 'ids' ) );
-	foreach ( $site_ids as $site_id ) {
-		switch_to_blog( (int) $site_id );
+	$trigv_site_ids = get_sites( array( 'fields' => 'ids' ) );
+	foreach ( $trigv_site_ids as $trigv_site_id ) {
+		switch_to_blog( (int) $trigv_site_id );
 		delete_option( 'trigv_settings' );
 		delete_option( 'trigv_trigger_settings' );
 		delete_option( 'trigv_log' );

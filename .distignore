@@ -1,0 +1,39 @@
+# Version control & CI
+/.git
+/.github
+/.gitignore
+/.gitattributes
+/.markdownlint.json
+/.distignore
+/.phpunit.cache
+
+# Dependency & build manifests (not needed at runtime)
+/node_modules
+/dist
+/composer.json
+/composer.lock
+/package.json
+/package-lock.json
+/phpunit.xml
+/vitest.config.js
+/i18n-map.json
+
+# Documentation not shipped to wp.org
+/docs
+/CONTEXT.md
+/DEVELOPER.md
+/README.md
+
+# Example add-on (a separate plugin)
+/examples
+
+# Test suite
+/tests
+
+# Front-end sources — compiled output ships in /build
+/src/*.js
+/src/*.scss
+/src/components
+
+# Placeholder
+/languages/.gitkeep

@@ -79,13 +79,13 @@ export default function Triggers() {
 				setTriggers( hydrate( data.triggers || [] ) );
 				setNotice( {
 					status: 'success',
-					text: __( 'Triggers saved.', 'wp-trigv' ),
+					text: __( 'Triggers saved.', 'push-notifications-for-trigv' ),
 				} );
 			} )
 			.catch( ( err ) =>
 				setNotice( {
 					status: 'error',
-					text: err.message || __( 'Save failed.', 'wp-trigv' ),
+					text: err.message || __( 'Save failed.', 'push-notifications-for-trigv' ),
 				} )
 			)
 			.finally( () => setSaving( false ) );
@@ -130,11 +130,11 @@ export default function Triggers() {
 										<TextControl
 											label={ __(
 												'Channel',
-												'wp-trigv'
+												'push-notifications-for-trigv'
 											) }
 											placeholder={ __(
 												'Use default channel',
-												'wp-trigv'
+												'push-notifications-for-trigv'
 											) }
 											value={ t.config.channel }
 											onChange={ ( v ) =>
@@ -147,7 +147,7 @@ export default function Triggers() {
 											__next40pxDefaultSize
 										/>
 										<SelectControl
-											label={ __( 'Level', 'wp-trigv' ) }
+											label={ __( 'Level', 'push-notifications-for-trigv' ) }
 											value={ t.config.level }
 											options={ LEVELS }
 											onChange={ ( v ) =>
@@ -156,7 +156,7 @@ export default function Triggers() {
 											__next40pxDefaultSize
 										/>
 										<TextControl
-											label={ __( 'Title', 'wp-trigv' ) }
+											label={ __( 'Title', 'push-notifications-for-trigv' ) }
 											placeholder={ t.default_title }
 											value={ t.config.title }
 											onChange={ ( v ) =>
@@ -167,7 +167,7 @@ export default function Triggers() {
 										<TextControl
 											label={ __(
 												'Description',
-												'wp-trigv'
+												'push-notifications-for-trigv'
 											) }
 											placeholder={
 												t.default_description
@@ -185,7 +185,7 @@ export default function Triggers() {
 										<ToggleControl
 											label={ __(
 												'Time-sensitive delivery',
-												'wp-trigv'
+												'push-notifications-for-trigv'
 											) }
 											checked={
 												!! t.config.time_sensitive
@@ -200,7 +200,7 @@ export default function Triggers() {
 											__nextHasNoMarginBottom
 										/>
 										<p className="trigv-tokens">
-											{ __( 'Tokens:', 'wp-trigv' ) }{ ' ' }
+											{ __( 'Tokens:', 'push-notifications-for-trigv' ) }{ ' ' }
 											{ Object.keys( t.tokens )
 												.map(
 													( token ) => `{${ token }}`
@@ -216,7 +216,7 @@ export default function Triggers() {
 			) ) }
 
 			<Button variant="primary" onClick={ save } isBusy={ saving }>
-				{ __( 'Save triggers', 'wp-trigv' ) }
+				{ __( 'Save triggers', 'push-notifications-for-trigv' ) }
 			</Button>
 		</div>
 	);

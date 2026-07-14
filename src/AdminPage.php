@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Trigv;
+namespace Soderlind\Trigv;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -30,8 +30,8 @@ final class AdminPage {
 
 	public function register_menu(): void {
 		add_menu_page(
-			__( 'Trigv', 'wp-trigv' ),
-			__( 'Trigv', 'wp-trigv' ),
+			__( 'Trigv', 'push-notifications-for-trigv' ),
+			__( 'Trigv', 'push-notifications-for-trigv' ),
 			'manage_options',
 			self::SLUG,
 			array( $this, 'render' ),
@@ -71,6 +71,6 @@ final class AdminPage {
 			$asset['version']
 		);
 
-		wp_set_script_translations( 'trigv-admin', 'wp-trigv' );
+		wp_set_script_translations( 'trigv-admin', 'push-notifications-for-trigv' );
 	}
 }

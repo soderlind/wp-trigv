@@ -1,18 +1,15 @@
-name: Build and attach release zip
+name: Deploy to WordPress.org
 
 on:
   release:
     types: [published]
 
 permissions:
-  contents: write
-
-env:
-  PLUGIN_SLUG: push-notifications-for-trigv
-  PLUGIN_ZIP: push-notifications-for-trigv.zip
+  contents: read
 
 jobs:
-  build:
+  deploy:
+    name: Deploy to WordPress.org SVN
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,17 +35,9 @@ jobs:
       - name: Build assets
         run: npm run build
 
-      - name: Stage plugin files
-        run: |
-          mkdir -p dist/${PLUGIN_SLUG}
-          rsync -av --exclude='.git' --exclude-from=.distignore ./ dist/${PLUGIN_SLUG}/
-
-      - name: Create zip
-        run: |
-          cd dist
-          zip -r ../${PLUGIN_ZIP} ${PLUGIN_SLUG}
-
-      - name: Upload release asset
-        uses: softprops/action-gh-release@v2
-        with:
-          files: ${{ env.PLUGIN_ZIP }}
+      - name: Deploy to WordPress.org
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: push-notifications-for-trigv
