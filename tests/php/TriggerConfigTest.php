@@ -5,12 +5,12 @@
 
 declare(strict_types=1);
 
-namespace Trigv\Tests;
+namespace Soderlind\Trigv\Tests;
 
 use Brain\Monkey\Functions;
 use Mockery;
-use Trigv\TriggerCatalog;
-use Trigv\TriggerConfig;
+use Soderlind\Trigv\TriggerCatalog;
+use Soderlind\Trigv\TriggerConfig;
 
 final class TriggerConfigTest extends UnitTestCase {
 

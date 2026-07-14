@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.0 - 2026-07-14
+
+- Prepared for the WordPress.org Plugin Directory: renamed to **Push
+  Notifications for Trigv** with text domain `push-notifications-for-trigv`.
+- Added an **External services** disclosure to `readme.txt` documenting the data
+  sent to the Trigv API, plus links to Trigv's Terms and Privacy Policy.
+- Removed the self-hosted GitHub updater; WordPress.org is now the sole update
+  channel. (Supersedes ADR 0003.)
+- Escaped exception messages in the HTTP client and prefixed the uninstall
+  globals for WordPress coding-standards compliance.
+- Internal: moved the plugin's PHP namespace to `Soderlind\Trigv` to avoid
+  clashing with the bundled `trigv-php` SDK (which owns `Trigv\`).
+- Packaging: added `.distignore` and wired the build/deploy workflows to it.
+
 ## 1.3.0 - 2026-07-14
 
 - Send events using the official [trigv-php](https://github.com/Trigv/trigv-php)

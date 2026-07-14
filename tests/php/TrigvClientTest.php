@@ -5,10 +5,10 @@
 
 declare(strict_types=1);
 
-namespace Trigv\Tests;
+namespace Soderlind\Trigv\Tests;
 
 use Brain\Monkey\Functions;
-use Trigv\TrigvClient;
+use Soderlind\Trigv\TrigvClient;
 use WP_Error;
 
 final class TrigvClientTest extends UnitTestCase {
@@ -36,6 +36,7 @@ final class TrigvClientTest extends UnitTestCase {
 		parent::setUp();
 		Functions\when( 'is_wp_error' )->justReturn( false );
 		Functions\when( 'wp_remote_retrieve_headers' )->justReturn( array() );
+		Functions\when( 'esc_html' )->returnArg();
 	}
 
 	public function test_202_is_success(): void {

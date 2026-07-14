@@ -11,8 +11,8 @@ permissions:
   contents: write
 
 env:
-  PLUGIN_SLUG: wp-trigv
-  PLUGIN_ZIP: wp-trigv.zip
+  PLUGIN_SLUG: push-notifications-for-trigv
+  PLUGIN_ZIP: push-notifications-for-trigv.zip
 
 jobs:
   build:
@@ -43,33 +43,10 @@ jobs:
       - name: Build assets
         run: npm run build
 
-      - name: Verify update-checker is packaged
-        run: test -d vendor/yahnis-elsts/plugin-update-checker
-
       - name: Stage plugin files
         run: |
           mkdir -p dist/${PLUGIN_SLUG}
-          rsync -av --exclude-from=- ./ dist/${PLUGIN_SLUG}/ <<'EOF'
-          .git/
-          .github/
-          docs/
-          src/
-          tests/
-          examples/
-          node_modules/
-          dist/
-          .gitignore
-          .gitattributes
-          .distignore
-          .phpunit.cache/
-          CONTEXT.md
-          README.md
-          phpunit.xml
-          vitest.config.js
-          package.json
-          package-lock.json
-          composer.lock
-          EOF
+          rsync -av --exclude='.git' --exclude-from=.distignore ./ dist/${PLUGIN_SLUG}/
 
       - name: Create zip
         run: |

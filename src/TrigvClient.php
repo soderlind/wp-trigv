@@ -7,8 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Trigv;
+namespace Soderlind\Trigv;
 
+use Trigv\Client;
 use Trigv\Exception\ApiException;
 use Trigv\Exception\AuthenticationException;
 use Trigv\Exception\AuthorizationException;

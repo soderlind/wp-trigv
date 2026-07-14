@@ -4,7 +4,9 @@ Date: 2026-07-03
 
 ## Status
 
-Accepted
+Superseded by [ADR 0004](0004-wporg-distribution.md) (2026-07-14). The plugin
+now targets the WordPress.org Plugin Directory, which requires updates to come
+from wp.org; the self-hosted GitHub updater has been removed.
 
 ## Context
 

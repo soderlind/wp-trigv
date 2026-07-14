@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Trigv\Tests;
+namespace Soderlind\Trigv\Tests;
 
 use Brain\Monkey;
 use Mockery;

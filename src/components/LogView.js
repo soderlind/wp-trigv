@@ -35,19 +35,19 @@ export default function LogView() {
 			<CardBody>
 				{ entries.length === 0 ? (
 					<Notice status="info" isDismissible={ false }>
-						{ __( 'No dispatches yet.', 'wp-trigv' ) }
+						{ __( 'No dispatches yet.', 'push-notifications-for-trigv' ) }
 					</Notice>
 				) : (
 					<table className="widefat striped trigv-log">
 						<thead>
 							<tr>
-								<th>{ __( 'Time', 'wp-trigv' ) }</th>
-								<th>{ __( 'Trigger', 'wp-trigv' ) }</th>
-								<th>{ __( 'Title', 'wp-trigv' ) }</th>
-								<th>{ __( 'Channel', 'wp-trigv' ) }</th>
-								<th>{ __( 'Level', 'wp-trigv' ) }</th>
-								<th>{ __( 'Status', 'wp-trigv' ) }</th>
-								<th>{ __( 'Detail', 'wp-trigv' ) }</th>
+								<th>{ __( 'Time', 'push-notifications-for-trigv' ) }</th>
+								<th>{ __( 'Trigger', 'push-notifications-for-trigv' ) }</th>
+								<th>{ __( 'Title', 'push-notifications-for-trigv' ) }</th>
+								<th>{ __( 'Channel', 'push-notifications-for-trigv' ) }</th>
+								<th>{ __( 'Level', 'push-notifications-for-trigv' ) }</th>
+								<th>{ __( 'Status', 'push-notifications-for-trigv' ) }</th>
+								<th>{ __( 'Detail', 'push-notifications-for-trigv' ) }</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -83,7 +83,7 @@ export default function LogView() {
 						onClick={ clear }
 						disabled={ entries.length === 0 }
 					>
-						{ __( 'Clear log', 'wp-trigv' ) }
+						{ __( 'Clear log', 'push-notifications-for-trigv' ) }
 					</Button>
 				</p>
 			</CardBody>

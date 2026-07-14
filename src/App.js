@@ -10,16 +10,16 @@ import LogView from './components/LogView';
 export default function App() {
 	return (
 		<div className="trigv-admin">
-			<h1>{ __( 'Trigv', 'wp-trigv' ) }</h1>
+			<h1>{ __( 'Trigv', 'push-notifications-for-trigv' ) }</h1>
 			<TabPanel
 				className="trigv-tabs"
 				tabs={ [
 					{
 						name: 'connection',
-						title: __( 'Connection', 'wp-trigv' ),
+						title: __( 'Connection', 'push-notifications-for-trigv' ),
 					},
-					{ name: 'triggers', title: __( 'Triggers', 'wp-trigv' ) },
-					{ name: 'log', title: __( 'Log', 'wp-trigv' ) },
+					{ name: 'triggers', title: __( 'Triggers', 'push-notifications-for-trigv' ) },
+					{ name: 'log', title: __( 'Log', 'push-notifications-for-trigv' ) },
 				] }
 			>
 				{ ( tab ) => {

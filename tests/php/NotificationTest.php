@@ -5,11 +5,11 @@
 
 declare(strict_types=1);
 
-namespace Trigv\Tests;
+namespace Soderlind\Trigv\Tests;
 
 use Brain\Monkey\Functions;
-use Trigv\Notification;
-use Trigv\Trigger;
+use Soderlind\Trigv\Notification;
+use Soderlind\Trigv\Trigger;
 
 final class NotificationTest extends UnitTestCase {
 

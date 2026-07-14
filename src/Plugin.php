@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Trigv;
+namespace Soderlind\Trigv;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -46,8 +46,6 @@ final class Plugin {
 	 * Register hooks.
 	 */
 	public function init(): void {
-		load_plugin_textdomain( 'wp-trigv', false, dirname( plugin_basename( FILE ) ) . '/languages' );
-
 		$this->catalog->init();
 		$this->dispatcher->init();
 

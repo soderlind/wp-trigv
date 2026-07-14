@@ -60,13 +60,13 @@ export default function Connection() {
 				setApiKey( '' );
 				setNotice( {
 					status: 'success',
-					text: __( 'Settings saved.', 'wp-trigv' ),
+					text: __( 'Settings saved.', 'push-notifications-for-trigv' ),
 				} );
 			} )
 			.catch( ( err ) =>
 				setNotice( {
 					status: 'error',
-					text: err.message || __( 'Save failed.', 'wp-trigv' ),
+					text: err.message || __( 'Save failed.', 'push-notifications-for-trigv' ),
 				} )
 			)
 			.finally( () => setSaving( false ) );
@@ -83,7 +83,7 @@ export default function Connection() {
 			.then( () =>
 				setNotice( {
 					status: 'success',
-					text: __( 'Test notification sent.', 'wp-trigv' ),
+					text: __( 'Test notification sent.', 'push-notifications-for-trigv' ),
 				} )
 			)
 			.catch( ( err ) =>
@@ -92,7 +92,7 @@ export default function Connection() {
 					text:
 						err.error ||
 						err.message ||
-						__( 'Test failed.', 'wp-trigv' ),
+						__( 'Test failed.', 'push-notifications-for-trigv' ),
 				} )
 			)
 			.finally( () => setTesting( false ) );
@@ -118,7 +118,7 @@ export default function Connection() {
 					<Notice status="info" isDismissible={ false }>
 						{ __(
 							'The API key is defined via the TRIGV_API_KEY constant and cannot be changed here.',
-							'wp-trigv'
+							'push-notifications-for-trigv'
 						) }
 					</Notice>
 				) : (
@@ -126,21 +126,21 @@ export default function Connection() {
 						type="password"
 						label={
 							settings.has_api_key
-								? __( 'Trigv API key (saved)', 'wp-trigv' )
-								: __( 'Trigv API key', 'wp-trigv' )
+								? __( 'Trigv API key (saved)', 'push-notifications-for-trigv' )
+								: __( 'Trigv API key', 'push-notifications-for-trigv' )
 						}
 						placeholder={
 							settings.has_api_key
 								? settings.masked_key
-								: __( 'Paste your trgv_… token.', 'wp-trigv' )
+								: __( 'Paste your trgv_… token.', 'push-notifications-for-trigv' )
 						}
 						help={
 							settings.has_api_key
 								? __(
 										'A key is saved. Leave blank to keep it, or paste a new key to replace it.',
-										'wp-trigv'
+										'push-notifications-for-trigv'
 								  )
-								: __( 'Paste your trgv_… token.', 'wp-trigv' )
+								: __( 'Paste your trgv_… token.', 'push-notifications-for-trigv' )
 						}
 						value={ apiKey }
 						onChange={ setApiKey }
@@ -149,7 +149,7 @@ export default function Connection() {
 				) }
 
 				<TextControl
-					label={ __( 'Default channel', 'wp-trigv' ) }
+					label={ __( 'Default channel', 'push-notifications-for-trigv' ) }
 					value={ settings.default_channel }
 					onChange={ ( v ) =>
 						setSettings( { ...settings, default_channel: v } )
@@ -158,7 +158,7 @@ export default function Connection() {
 				/>
 
 				<SelectControl
-					label={ __( 'Default level', 'wp-trigv' ) }
+					label={ __( 'Default level', 'push-notifications-for-trigv' ) }
 					value={ settings.default_level }
 					options={ LEVELS }
 					onChange={ ( v ) =>
@@ -174,7 +174,7 @@ export default function Connection() {
 							onClick={ save }
 							isBusy={ saving }
 						>
-							{ __( 'Save', 'wp-trigv' ) }
+							{ __( 'Save', 'push-notifications-for-trigv' ) }
 						</Button>
 					</FlexItem>
 					<FlexItem>
@@ -184,7 +184,7 @@ export default function Connection() {
 							isBusy={ testing }
 							disabled={ ! settings.has_api_key }
 						>
-							{ __( 'Send test', 'wp-trigv' ) }
+							{ __( 'Send test', 'push-notifications-for-trigv' ) }
 						</Button>
 					</FlexItem>
 				</Flex>

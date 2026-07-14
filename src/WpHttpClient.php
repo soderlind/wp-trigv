@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Trigv;
+namespace Soderlind\Trigv;
 
 use Trigv\Exception\NetworkException;
 use Trigv\Exception\TimeoutException;
@@ -51,9 +51,9 @@ final class WpHttpClient implements HttpClientInterface {
 		if ( is_wp_error( $response ) ) {
 			$message = $response->get_error_message();
 			if ( false !== stripos( $message, 'timed out' ) || false !== stripos( $message, 'timeout' ) ) {
-				throw new TimeoutException( '' !== $message ? $message : 'Request timed out' );
+				throw new TimeoutException( esc_html( '' !== $message ? $message : 'Request timed out' ) );
 			}
-			throw new NetworkException( '' !== $message ? $message : 'Network request failed' );
+			throw new NetworkException( esc_html( '' !== $message ? $message : 'Network request failed' ) );
 		}
 
 		$out_headers = array();
