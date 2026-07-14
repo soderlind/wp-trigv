@@ -8,9 +8,10 @@
 /.phpunit.cache
 
 # Dependency & build manifests (not needed at runtime)
+# Note: composer.json is intentionally shipped — wp.org expects it whenever
+# the /vendor directory is bundled, so reviewers can verify dependencies.
 /node_modules
 /dist
-/composer.json
 /composer.lock
 /package.json
 /package-lock.json
