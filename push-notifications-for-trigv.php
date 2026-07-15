@@ -3,7 +3,7 @@
  * Plugin Name:       Push Notifications for Trigv
  * Plugin URI:        https://github.com/soderlind/push-notifications-for-trigv
  * Description:       Send WordPress events as push notifications via Trigv. Choose which events to watch, map them to Trigv channels, and dispatch asynchronously.
- * Version:           2.0.1
+ * Version:           2.0.2
  * Requires at least: 6.8
  * Requires PHP:      8.3
  * Author:            Per Soderlind
@@ -22,7 +22,7 @@ namespace Soderlind\Trigv;
 
 defined( 'ABSPATH' ) || exit;
 
-const VERSION = '2.0.1';
+const VERSION = '2.0.2';
 
 define( 'Soderlind\\Trigv\\FILE', __FILE__ );
 define( 'Soderlind\\Trigv\\DIR', plugin_dir_path( __FILE__ ) );

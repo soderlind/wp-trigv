@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.2 - 2026-07-15
+
+- Add a GitHub Actions workflow to sync WordPress.org plugin assets on release.
+- Add a plugin icon.
+- Add **Installation** and **Frequently Asked Questions** sections to the readme.
+
 ## 2.0.1 - 2026-07-14
 
 - Update the bundled Action Scheduler library to 4.0.0.
