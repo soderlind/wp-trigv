@@ -1,6 +1,7 @@
 # Version control & CI
 /.git
 /.github
+/.wordpress-org
 /.gitignore
 /.gitattributes
 /.markdownlint.json
