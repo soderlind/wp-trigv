@@ -12,7 +12,7 @@ Send WordPress events as push notifications via Trigv.
 
 == Description ==
 
-Trigv watches the WordPress events (Triggers) you choose and dispatches them as
+[Trigv](https://trigv.com) watches the WordPress events (Triggers) you choose and dispatches them as
 push notifications through the Trigv API. Dispatch happens asynchronously in the
 background, with retries, so your site stays fast.
 
