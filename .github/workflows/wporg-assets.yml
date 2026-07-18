@@ -1,6 +1,7 @@
 name: Update WordPress.org Assets
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -25,3 +26,8 @@ jobs:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SLUG: push-notifications-for-trigv
+          # Only sync .wordpress-org assets and readme.txt. Without this, the
+          # action rsyncs the whole workspace into trunk/ and deletes
+          # trunk/vendor (not present here, since this job skips composer
+          # install), which breaks the composer-revert step (svn E000002).
+          IGNORE_OTHER_FILES: true
