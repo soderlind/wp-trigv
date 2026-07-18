@@ -3,7 +3,7 @@
   <desc id="desc">WordPress events flowing into a Trigv push notification signal.</desc>
   <defs/>
 
-  <g>
+  <g transform="matrix(1.738 0 0 1.738 -107.97 -115.29)">
     <circle cx="78" cy="92" r="13" fill="#000000"/>
     <circle cx="78" cy="128" r="13" fill="#000000"/>
     <circle cx="78" cy="164" r="13" fill="#000000"/>
