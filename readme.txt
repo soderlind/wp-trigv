@@ -90,6 +90,12 @@ Only the notification content you configure (channel, title, and optional descri
 
 Check that you have entered a valid API key, enabled at least one Trigger, and that WP-Cron (or a real cron) is running so Action Scheduler can process the background queue. Sending a test notification from the admin screen helps confirm your setup.
 
+==  Screenshots ==
+
+1. Connect your Trigv account by entering an API key on the admin screen.
+2. Enable the Triggers you want to watch and map each one to a Trigv channel and level.
+3. Log of dispatched notifications, with status and delivery info from Trigv.
+
 == Changelog ==
 
 = 2.0.2 =
